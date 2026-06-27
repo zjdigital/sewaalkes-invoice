@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Settings Invoice AI Designer - Sewaalkes.com">
+<title>Settings | Sewaalkes.com</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa fa-heartbeat"></i></div>
+            <h2>Sewaalkes</h2>
+            <span>Invoice AI Designer</span>
+        </div>
+        <nav>
+            <a href="index.html" id="nav-dashboard">
+                <i class="fa fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="index.html" id="nav-new">
+                <i class="fa fa-file-invoice"></i>
+                <span>New Invoice</span>
+            </a>
+            <a href="history.html" id="nav-history">
+                <i class="fa fa-clock-rotate-left"></i>
+                <span>History</span>
+            </a>
+            <a href="settings.html" class="active" id="nav-settings">
+                <i class="fa fa-gear"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <p>Invoice AI Designer V1</p>
+            <p class="brand-tag">by Sewaalkes.com</p>
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="main settings-page">
+
+        <div class="topbar">
+            <div class="topbar-left">
+                <h1><i class="fa fa-gear" style="color:#3b82f6;font-size:22px;margin-right:10px;"></i>Settings</h1>
+                <p class="topbar-sub">Konfigurasi profil perusahaan dan preferensi invoice</p>
+            </div>
+            <div class="btn-row" style="margin:0;">
+                <button onclick="window.location.href='index.html'" class="btn-primary">
+                    <i class="fa fa-arrow-left"></i> Dashboard
+                </button>
+                <button onclick="saveSettings()" class="btn-generate">
+                    <i class="fa fa-floppy-disk"></i> Simpan Settings
+                </button>
+            </div>
+        </div>
+
+        <!-- PROFIL PERUSAHAAN -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-building"></i>
+                <h3>Profil Perusahaan</h3>
+            </div>
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>Nama Perusahaan</label>
+                    <input id="companyName" type="text" value="Sewaalkes.com" placeholder="Nama Perusahaan">
+                </div>
+                <div class="input-group">
+                    <label>Website</label>
+                    <input id="website" type="text" value="www.sewaalkes.com" placeholder="Website">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input id="email" type="email" value="info@sewaalkes.com" placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <label>Nomor WhatsApp</label>
+                    <input id="phone" type="text" value="081212345678" placeholder="No. WhatsApp">
+                </div>
+            </div>
+            <div class="input-group" style="margin-top:12px;">
+                <label>Alamat Lengkap</label>
+                <textarea id="companyAddress" rows="4" placeholder="Alamat Lengkap">Jl. Kesehatan No.10 Bogor Jawa Barat</textarea>
+            </div>
+        </div>
+
+        <!-- DEFAULT INVOICE -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-sliders"></i>
+                <h3>Default Invoice</h3>
+            </div>
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>Template Default</label>
+                    <select id="templateStyle">
+                        <option>Premium Corporate</option>
+                        <option>Medical Blue</option>
+                        <option>Executive</option>
+                        <option>Modern Clean</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Status Pembayaran Default</label>
+                    <select id="paymentStatus">
+                        <option value="LUNAS">LUNAS</option>
+                        <option value="BELUM LUNAS">BELUM LUNAS</option>
+                        <option value="DP">DP / Uang Muka</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRANDING -->
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-star"></i>
+                <h3>Branding & Info</h3>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div style="background:#f8faff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;">
+                    <p style="font-size:12px;color:#6b7280;margin-bottom:4px;">Versi Aplikasi</p>
+                    <p style="font-size:16px;font-weight:700;color:#1d4ed8;">Invoice AI Designer V1</p>
+                </div>
+                <div style="background:#f8faff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;">
+                    <p style="font-size:12px;color:#6b7280;margin-bottom:4px;">Brand</p>
+                    <p style="font-size:16px;font-weight:700;color:#1d4ed8;">Sewaalkes.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTIFICATION -->
+        <div id="saveNotif" style="display:none;background:#dcfce7;border:1px solid #86efac;color:#15803d;padding:14px 20px;border-radius:12px;font-weight:600;text-align:center;margin-bottom:20px;font-size:14px;">
+            <i class="fa fa-check-circle" style="margin-right:8px;"></i>Settings berhasil disimpan!
+        </div>
+
+    </main>
+</div>
+
+<script>
+function saveSettings() {
+    const settings = {
+        companyName: document.getElementById("companyName").value,
+        website:     document.getElementById("website").value,
+        email:       document.getElementById("email").value,
+        phone:       document.getElementById("phone").value,
+        companyAddress: document.getElementById("companyAddress").value,
+        templateStyle:  document.getElementById("templateStyle").value,
+        paymentStatus:  document.getElementById("paymentStatus").value
+    };
+
+    localStorage.setItem("invoiceSettings", JSON.stringify(settings));
+
+    const notif = document.getElementById("saveNotif");
+    notif.style.display = "block";
+    setTimeout(() => {
+        notif.style.display = "none";
+    }, 3000);
+}
+
+function loadSettings() {
+    const settings = JSON.parse(localStorage.getItem("invoiceSettings") || "{}");
+    if (!settings.companyName) return;
+
+    const map = {
+        companyName:    "companyName",
+        website:        "website",
+        email:          "email",
+        phone:          "phone",
+        companyAddress: "companyAddress",
+        templateStyle:  "templateStyle",
+        paymentStatus:  "paymentStatus"
+    };
+
+    Object.entries(map).forEach(([key, id]) => {
+        const el = document.getElementById(id);
+        if (el && settings[key]) el.value = settings[key];
+    });
+}
+
+loadSettings();
+</script>
+
+</body>
+</html>
