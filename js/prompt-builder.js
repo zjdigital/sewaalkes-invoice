@@ -188,7 +188,7 @@ Layout Halaman:
 - Catatan / Notes
 - Area Tanda Tangan:
   PENTING: Hanya 2 elemen tanda tangan:
-  1. Kolom ADMIN (tengah) — dengan garis tanda tangan dan nama admin
+  1. Kolom tengah — dengan garis tanda tangan dan beri nama ADMIN
   2. Kolom STEMPEL PERUSAHAAN (kanan) — dengan logo stempel cap perusahaan
   TIDAK ADA kolom tanda tangan Penyewa
 - Footer: PROFESSIONAL • AMAN • TERPERCAYA
