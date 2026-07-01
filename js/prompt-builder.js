@@ -103,6 +103,21 @@ function buildPrompt() {
     const grandTotal =
         document.getElementById("grandTotal")?.innerText || "Rp 0";
 
+    const bankBca =
+        document.getElementById("bankBca")?.value || "-";
+
+    const bankBcaName =
+        document.getElementById("bankBcaName")?.value || "-";
+
+    const bankBsi =
+        document.getElementById("bankBsi")?.value || "-";
+
+    const bankBsiName =
+        document.getElementById("bankBsiName")?.value || "-";
+
+    const adminName =
+        document.getElementById("adminName")?.value || "-";
+
     const items = collectEquipmentItems();
 
     return `CREATE A PREMIUM CORPORATE MEDICAL EQUIPMENT RENTAL INVOICE
@@ -184,11 +199,13 @@ Layout Halaman:
     TOTAL AKHIR      :  Rp xxx  (besar, bold, warna biru tua)
   Rumus: TOTAL AKHIR = Total Sewa - Diskon + Biaya Antar + Biaya Ambil - DP
   PENTING: TIDAK ADA kolom Pembayaran QRIS di samping — ringkasan mengambil lebar penuh
-- Rekening Bank (BCA, Mandiri, BRI) — lebar penuh
+- Rekening Bank (BCA & BSI) — lebar penuh:
+  * BCA: ${bankBca} a.n ${bankBcaName}
+  * BSI: ${bankBsi} a.n ${bankBsiName}
 - Catatan / Notes
 - Area Tanda Tangan:
   PENTING: Hanya 2 elemen tanda tangan:
-  1. Kolom tengah — dengan garis tanda tangan dan beri nama ADMIN
+  1. Kolom ADMIN (tengah) — dengan garis tanda tangan dan nama admin: ${adminName}
   2. Kolom STEMPEL PERUSAHAAN (kanan) — dengan logo stempel cap perusahaan
   TIDAK ADA kolom tanda tangan Penyewa
 - Footer: PROFESSIONAL • AMAN • TERPERCAYA
